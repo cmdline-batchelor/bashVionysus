@@ -15,14 +15,12 @@
      https://tpo.pe/pathogen.vim
    
    yummy() { yum install -y "$i;" }
-
-
+   
    unsPlug() { rm -rf ~/.vim/bundle/"$1"; }
    upPlug() { unsPlug "$2"; getPlug "$1" "$2"; }
 
    setting() { grep -q "$1" ~/.vimrc || echo "$1" >> ~/.vimrc; }
    apply() { for i in "$@"; do "$2" "$i"; done; }
-
 
    getPlug() {
      if [ ! -d ~/.vim/bundle/"$2" ]; then
@@ -43,24 +41,6 @@
      echo -e '...\n '
     }
 
-   plugOtions() {
-     case "$1" in
-         uninstall )
-            unsPlug "$1"
-           ;;
-         upgrade   )
-            upPlug "$1" "$2"
-           ;;
-         install   )
-            getPlug "$1" "$2"
-           ;;
-                 * )
-            usage
-            notify
-     esac
-    } 
- 
    apply "${pkgs[@]}" yummy  
    apply "${repos[@]}" getPlug
    apply "${viSets[@]}" setting
-
