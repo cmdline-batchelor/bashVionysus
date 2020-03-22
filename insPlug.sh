@@ -14,7 +14,7 @@
      ~/.vim/autoload/pathogen.vim \
      https://tpo.pe/pathogen.vim
    
-   yummy() { yum install -y "$i;" }
+   yummy() { yum install -y "$i"; }
    
    unsPlug() { rm -rf ~/.vim/bundle/"$1"; }
    upPlug() { unsPlug "$2"; getPlug "$1" "$2"; }
@@ -34,10 +34,9 @@
      echo '  no params given || params spelled wrong'
      echo '  run without params for usage'
      echo '  default plugins are idempotent'
-     usage ' uninstall' 'repoName'
-     usage ' install' 'repoUser' 'repoName' 
-     usage ' upgrade' 'repoUser' 'repoName'
-     echo ' i nfo:'
+    # usage ' uninstall' 'repoName'
+    # usage ' install' 'repoUser' 'repoName' 
+    # usage ' upgrade' 'repoUser' 'repoName'
      echo -e '...\n '
     }
 
